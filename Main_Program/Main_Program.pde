@@ -36,7 +36,7 @@ import ddf.minim.ugens.*;
   float Xvel = 0;
   float Yvel = 0;
   int IsCutscene; //If the player is in a cutscene 0 = no 1 = yes 2 = animated(notiles)
-  Room[] Rooms; //list of rooms
+  //Room[] Rooms; //list of rooms
   int TileSize;
   PShape img;
   float XoffsetSpawn = 0;

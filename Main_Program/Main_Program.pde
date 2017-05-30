@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 /**
  * PROJECT 
  * by Kevin Cai
- * Last Updated: 5/28/17 3:44 M
+ * Last Updated: 5/30/17 6:51 PM
  * 
  */
   Minim minim;
@@ -192,6 +192,9 @@ void UpdatePlayer() {
 void CheckHitbox(){
   CheckTileData();
 }
+void RenderEnemies(){
+}
+
 void RenderPlayer(int X, int Y){
   //img = loadShape("Play_shell_"+millis()%41 +".svg");
   CalcPlayer(X,Y,6,0.5,15,3600,K,4,true,30,true,color(56, 201, 255),color(255, 255, 255));//body
@@ -463,7 +466,7 @@ void GenerateHexRing(int X, int Y,int I,int R){// I = iteration, R = radii of he
 }
 
 void mouseClicked() {
-  Projectile n = new Projectile(mouseX-(width/2),mouseY-(height/2));
+  Projectile n = new Projectile(mouseX-(width/2),mouseY-(height/2),0);
   Projectiles.add(n);
   
 }

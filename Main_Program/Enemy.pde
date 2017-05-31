@@ -14,4 +14,12 @@ public class Enemy{
     j = (X > -90 &&X < width+90 && Y > -90 &&X < height+90)? true:false;
     return j;
   }
+  void Update(){
+    if(InRange()){
+    shoot();
+    }
+  }
+  void shoot(){
+  
+  }
 }

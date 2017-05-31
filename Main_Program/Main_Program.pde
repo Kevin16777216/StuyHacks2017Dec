@@ -113,6 +113,8 @@ void LoadLevels (int RoomID){
   float S = (K*2+3); 
   PlayerX += XoffsetSpawn*S;//half sides
   PlayerY += YoffsetSpawn*A;//Yoffset spawn is the number of HALF hexagon apothems
+  Xvel = 0;
+  Yvel = 0;
     String[] RawData = loadStrings(RoomID +"Tiles"+".txt");
     CurrentTileData.clear();
     int count = 0;

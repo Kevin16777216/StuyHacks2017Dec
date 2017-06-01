@@ -4,7 +4,9 @@ public class Enemy{
   int SpawnRing;
   int SpawnNumber;
   int X;
+  int m;
   int Y;
+  ArrayList<Projectile> p = new ArrayList<Projectile>();
   public Enemy(int[]m){
     SpawnRing = m[1];
     SpawnNumber = m[2];
@@ -15,11 +17,19 @@ public class Enemy{
     return j;
   }
   void Update(){
-    if(InRange()){
+    m++;
+    if(InRange() && m% 60 == 0){
     shoot();
+    m = 0;
     }
   }
+  void ChangePos(){
+    X -= Xvel;
+    Y -= Yvel;
+    X += int(-width/(2*X))/int(-height/(2*Y));
+    Y += int(-height/(2*Y))/int(-width/(2*X));
+  }
   void shoot(){
-  
+    Projectile Eprojectile = new Projectile(int(-width/(2*X)), int(-height/(2*Y)),1);
   }
 }

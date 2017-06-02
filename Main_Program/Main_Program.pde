@@ -17,10 +17,13 @@ import ddf.minim.ugens.*;
   boolean KeyRight = false;       
   boolean KeyLeft = false;
   boolean KeyDown = false;
+  int PlayerDamage;
+  float CritChance = 0.8;
+  float CritMultiplier = 1.2;
   int ko = 0;
-    PImage ProjectileImg ;
+  PImage ProjectileImg ;
   ArrayList<Projectile>Projectiles = new ArrayList<Projectile>();
-  ArrayList<Integer> IntersectingTileIDs = new ArrayList<Integer>();
+  private ArrayList<Integer> IntersectingTileIDs = new ArrayList<Integer>();
   ArrayList<Integer> CurrentRoomData = new ArrayList<Integer>();//Main Data
   ArrayList<HexTile_Non_Puzzle> CurrentTileData = new ArrayList<HexTile_Non_Puzzle>();
   ArrayList<Teleporter> CurrentTeleData = new ArrayList<Teleporter>();
@@ -41,7 +44,7 @@ import ddf.minim.ugens.*;
   PShape img;
   float XoffsetSpawn = 0;
   float YoffsetSpawn = 0;
-   HealthBar health;
+  private HealthBar health;
   int K = 80; //PlayerSize same as how big the room is
   int CurrentRoomID = 1;
   int Realframes;

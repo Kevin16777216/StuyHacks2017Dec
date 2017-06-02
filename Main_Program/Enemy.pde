@@ -6,10 +6,12 @@ public class Enemy{
   int X;
   int m;
   int Y;
+  HealthBar k;
   ArrayList<Projectile> p = new ArrayList<Projectile>();
   public Enemy(int[]m){
     SpawnRing = m[1];
     SpawnNumber = m[2];
+    k = new HealthBar(health,X,Y);
   }
   boolean InRange(){
     boolean j = false;
@@ -22,6 +24,7 @@ public class Enemy{
     shoot();
     m = 0;
     }
+    k.RenderBar();
   }
   void ChangePos(){
     X -= Xvel;
@@ -31,5 +34,8 @@ public class Enemy{
   }
   void shoot(){
     Projectile Eprojectile = new Projectile(int(-width/(2*X)), int(-height/(2*Y)),1);
+  }
+  void IsHit(float Damage){
+    k.Hit(Damage);
   }
 }

@@ -15,7 +15,8 @@ public Projectile(int movX, int movY,int type,int damage){
   ProjectileImg = loadImage("play_buttonk.png");
 }
 void render(){
-  
+  x-=Xvel;
+  y-=Yvel;
    x+=movX;
  y+=movY;
  println(movX);

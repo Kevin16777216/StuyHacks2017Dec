@@ -22,6 +22,7 @@ public class Enemy{
   }
   void Update(){
     m++;
+    UpdateMovement();
     if(InRange() && m% 60 == 0){
     shoot();
     IsHit();
@@ -74,5 +75,11 @@ public class Enemy{
   }
   void LoseHealth(float Damage){
     k.Hit(Damage);
+  }
+  void UpdateMovement(){
+    float Xchange = -(X-width/2)/5;
+    float Ychange = -(Y-height/2)/5;
+    X+= Xchange-Xvel;
+    Y+= Ychange-Yvel;
   }
 }

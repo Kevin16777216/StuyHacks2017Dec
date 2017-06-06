@@ -471,7 +471,7 @@ void GenerateHexRing(int X, int Y,int I,int R){// I = iteration, R = radii of he
 }
 
 void mouseClicked() {
-  Projectile n = new Projectile(mouseX-(width/2),mouseY-(height/2),0);
+  Projectile n = new Projectile(mouseX-(width/2),mouseY-(height/2),0,PlayerDamage);
   Projectiles.add(n);
   
 }

@@ -2,8 +2,8 @@ public class Teleporter{
   public float X;
   public float Y;
   public float RoomID;
-  public float R;//side
-  public float N;//Apothem
+  public float R;//itemID
+  public float N;//ring
   public float S;
   public float A;
   public float FutureRoomID;

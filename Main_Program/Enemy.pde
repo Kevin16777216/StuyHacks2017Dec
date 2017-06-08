@@ -4,6 +4,7 @@ public class Enemy{
   int SpawnRing;
   int SpawnNumber;
   int X;
+  boolean initiated = false;
   int size = 30; //size of enemy in px
   int m;
   int damage; //TODO: Have some Tiers 
@@ -13,6 +14,9 @@ public class Enemy{
   public Enemy(int[]m){
     SpawnRing = m[1];
     SpawnNumber = m[2];
+  }
+  void Spawn(){
+    initiated = true;
     k = new HealthBar(health,X,Y);
   }
   boolean InRange(){

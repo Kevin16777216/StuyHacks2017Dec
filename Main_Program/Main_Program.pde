@@ -49,11 +49,13 @@ import ddf.minim.ugens.*;
   int CurrentRoomID = 1;
   int Realframes;
   PImage TeleImg;
+  PImage EnemyImg;
 void setup() {
   size(820, 820, P2D);
   noStroke();
   minim = new Minim(this);
   TeleImg = loadImage("bitmap.png");
+  EnemyImg = loadImage("Enemy.png");
   ProjectileImg= loadImage("play_buttonk.png");
   health = new HealthBar(200,width/2,height/2);
   LoadLevels(CurrentRoomID);
@@ -466,6 +468,20 @@ void GenerateHexRing(int X, int Y,int I,int R){// I = iteration, R = radii of he
       }
     }
 }
+
+      for(int i = 0 ; i < CurrentEnemyData.size(); i++){
+      image(EnemyImg, CurrentEnemyData.get(i).X,CurrentEnemyData.get(i).Y,220,220);
+      if(LineLength(CurrentEnemyData.get(i).X,CurrentEnemyData.get(i).Y,width/2,height/2)<width/2){
+       if(LineLength(CurrentEnemyData.get(i).X,CurrentEnemyData.get(i).Y,width/2,height/2)<K*2 ){
+        image(EnemyImg, CurrentEnemyData.get(i).X,CurrentEnemyData.get(i).Y,220,220);
+      }
+        image(EnemyImg, CurrentEnemyData.get(i).X,CurrentEnemyData.get(i).Y,220,220);
+      }
+    
+}
+
+
+
     }
   }}
 }

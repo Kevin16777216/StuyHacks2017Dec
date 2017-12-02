@@ -37,7 +37,9 @@ void draw() {
  int y = 0;
   while(x < 640) {
     while(y < 480) {
-         println(pixels[y * width + x]);
+          if (colorFilteredImage.pixels[x + y * 640] == -16777216) {
+            println(x + " " + y);
+          }
       y++;
     }
     x++;

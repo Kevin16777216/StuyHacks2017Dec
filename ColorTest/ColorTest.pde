@@ -31,7 +31,19 @@ void draw() {
   scale (0.5);
   image(src, 0, 0);
   image(colorFilteredImage, src.width, 0);
+  loadPixels();
+  colorMode(HSB, 100);
+ int x = 0;
+ int y = 0;
+  while(x < 640) {
+    while(y < 480) {
+         println(pixels[y * width + x]);
+      y++;
+    }
+    x++;
+    y = 0;
   }
+}
 /*void draw() {
   scale(0.5);
   image(src, 0, 0);

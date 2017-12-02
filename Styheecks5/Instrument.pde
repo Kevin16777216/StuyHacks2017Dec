@@ -17,5 +17,8 @@ public class Instrument{
    ac.out.addInput(g);
    ac.start();
   }
+  public void editFrequency(float j){
+    frequency = j;
+  }
 
 }

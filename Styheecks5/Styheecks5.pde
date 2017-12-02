@@ -2,8 +2,8 @@ import beads.*;
 import java.util.Arrays;
 float volume = 1.0;
 ArrayList<boolean[]> data = new ArrayList<boolean[]>();
-public char[] keyBinds = new char[] {'a','s','d','f','g','h','j'};
-public Instrument[] chord = new Instrument[7];
+public char[] keyBinds = new char[] {'a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'};
+public ArrayList<Instrument> chord = new ArrayList<Instrument>();
 Instrument slideR;
 String mainSong = "/";
 PrintWriter output;
@@ -12,8 +12,8 @@ void setup()
 {
  size(800, 600);
  output = createWriter("data.txt");
- for (int i = 0; i < 7; i++){
-   chord[i] = new Instrument(200 + i * 40);
+ for (int i = 0; i < keyBinds.length; i++){
+   chord.add(new Instrument(200 + i * 40));
  }
  background(255);
  slide = new Slider(100,100,420,1020);
@@ -31,17 +31,17 @@ void draw()
   }
   slideR.editFrequency(slide.getCval());
   slideR.frequencyGlide.setValue(slideR.frequency);
-  boolean[] frame = new boolean[8];
-  for (int i = 0; i < 7; i ++){
-    frame[i] = chord[i].isPlaying;
-    if (chord[i].isPlaying){
-     chord[i].gainGlide.setValue(volume + 1);
+  boolean[] frame = new boolean[chord.size() + 1];
+  for (int i = 0; i < chord.size(); i ++){
+    frame[i] = chord.get(i).isPlaying;
+    if (chord.get(i).isPlaying){
+     chord.get(i).gainGlide.setValue(volume + 1);
     }else{
-      chord[i].gainGlide.setValue(0);
+      chord.get(i).gainGlide.setValue(0);
     }
-     chord[i].frequencyGlide.setValue(chord[i].frequency + 300);
+     chord.get(i).frequencyGlide.setValue(chord.get(i).frequency + 300);
   }
-  frame[7] = slide.getState();
+  frame[chord.size()] = slide.getState();
   mainSong += Arrays.toString(frame);
   data.add(frame);
 }
@@ -53,16 +53,16 @@ void saveData(){
   exit();
 }
 void keyPressed(){
-  for(int i = 0; i < 7; i++){
+  for(int i = 0; i < chord.size(); i++){
     if(key == keyBinds[i]){
-      chord[i].isPlaying = true;
+      chord.get(i).isPlaying = true;
     }
   }
 }
 void keyReleased(){
-  for(int i = 0; i < 7; i++){
+  for(int i = 0; i < chord.size(); i++){
     if(key == keyBinds[i]){
-      chord[i].isPlaying = false;
+      chord.get(i).isPlaying = false;
     }
   }
   if (key == '1'){

@@ -1,2 +1,2 @@
-# Hex-Maze
-For StuyHacks IV
+# Virtual Theremin
+Uses OpenCV and Processing to create a CV theremin

@@ -20,7 +20,6 @@ void draw() {
   }
   opencv.loadImage(cam);
   image(cam,640,0);
-  opencv.useColor();
   src = opencv.getSnapshot();
   opencv.useColor(HSB);
   opencv.setGray(opencv.getH().clone());

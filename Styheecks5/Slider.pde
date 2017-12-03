@@ -40,6 +40,4 @@ public class Slider{
   public void turnOff(){
     On = !On;
   }
-  
-
 }

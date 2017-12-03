@@ -8,8 +8,6 @@ public int avgY;
 Capture cam;
 PImage src,colorFilteredImage;
 OpenCV opencv;
-float bX = 0;
-float bY = 0;
 ArrayList<Contour> contours;
 //______________________________________
 float volume = 1.0;
@@ -40,16 +38,14 @@ void setup()
 }
 void draw()
 {
-  bX = avgX;
-  bY = avgY;
   slide.render();
   slide.update();
   if (slide.On){
     slideR.gainGlide.setValue(volume + 1);
   }else{
   }
-  slideR.gainGlide.setValue(volume + 1);
-  slideR.editFrequency(avgY + 300);
+  slideR.gainGlide.setValue(volume + avgX*4/ 600);
+  slideR.editFrequency(avgY*5 + 300);
   slideR.frequencyGlide.setValue(avgY + 300);
   boolean[] frame = new boolean[chord.size() + 1];
   for (int i = 0; i < chord.size(); i ++){
@@ -102,10 +98,11 @@ void doCam(){
   src = opencv.getSnapshot();
   opencv.useColor(HSB);
   opencv.setGray(opencv.getH().clone());
-  opencv.inRange(50 , 80);
+  opencv.inRange(53 , 65);
   opencv.erode();
   opencv.erode();
   opencv.erode();
+  opencv.dilate();
   colorFilteredImage = opencv.getSnapshot();
   avgX = 0;
   avgY= 0;
